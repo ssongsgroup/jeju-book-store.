@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제주 새벽 책방 · 멤버 모집</title>
+<style>
+  :root {
+    --paper: #f6f0e1;
+    --card: #fbf7ec;
+    --ink: #232b26;
+    --soft: #5c655e;
+    --forest: #1f4d3a;
+    --forest-deep: #163828;
+    --line: #ddd3bb;
+    --serif: "Noto Serif KR", "Nanum Myeongjo", "AppleMyungjo", "Batang", serif;
+    --sans: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.8;
+    -webkit-text-size-adjust: 100%;
+  }
+  h1, h2, h3 { font-family: var(--serif); color: var(--forest); line-height: 1.4; margin: 0; }
+  p { margin: 0; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 88px 0; }
+  section + section { border-top: 1px solid var(--line); }
+  h2 { font-size: 1.65rem; margin-bottom: 28px; }
+  .lead { color: var(--soft); }
+
+  /* 첫 화면 */
+  .hero { text-align: center; padding: 0 0 96px; border-top: 0 !important; position: relative; }
+  .ribbon {
+    width: 34px; height: 92px; margin: 0 auto 56px;
+    background: var(--forest);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+  }
+  .hero h1 { font-size: clamp(2.6rem, 11vw, 3.8rem); letter-spacing: -0.02em; font-weight: 700; }
+  .hero .tagline { font-family: var(--serif); font-size: 1.2rem; margin: 24px 0 48px; color: var(--ink); }
+  .deadline { margin-top: 20px; font-size: 0.95rem; color: var(--soft); }
+
+  .apply {
+    display: inline-block;
+    background: var(--forest);
+    color: #fbf7ec;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 16px 36px;
+    border-radius: 999px;
+    transition: background .2s;
+  }
+  .apply:hover { background: var(--forest-deep); }
+  :focus-visible { outline: 3px solid var(--forest); outline-offset: 3px; }
+
+  /* 모임 소개 */
+  .facts { margin: 36px 0 0; padding: 0; display: grid; gap: 0; }
+  .facts div {
+    display: grid; grid-template-columns: 5.5em 1fr; gap: 12px;
+    padding: 16px 0; border-bottom: 1px solid var(--line);
+  }
+  .facts dt { color: var(--soft); }
+  .facts dd { margin: 0; font-weight: 600; }
+
+  /* 이런 분을 찾아요 */
+  .who { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+  .who li { display: grid; grid-template-columns: 2em 1fr; gap: 8px; }
+
+  /* 진행 방식 */
+  .steps { list-style: none; margin: 32px 0 0; padding: 0 0 0 20px; border-left: 2px solid var(--forest); display: grid; gap: 28px; }
+  .steps b { display: block; font-family: var(--serif); color: var(--forest); }
+  .steps span { color: var(--soft); }
+
+  /* 책 */
+  .book {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 10px solid var(--forest);
+    border-radius: 4px 14px 14px 4px;
+    padding: 36px 28px;
+    margin-top: 8px;
+  }
+  .book .emoji { font-size: 2rem; }
+  .book h3 { font-size: 1.5rem; margin: 8px 0 12px; }
+
+  /* FAQ */
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq summary {
+    list-style: none; cursor: pointer;
+    padding: 22px 36px 22px 0; position: relative;
+    font-family: var(--serif); font-weight: 600; color: var(--forest);
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+    font-size: 1.5rem; transition: transform .25s;
+  }
+  .faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  .faq .answer { padding: 0 0 24px; color: var(--soft); }
+
+  /* 마지막 신청 */
+  .final { text-align: center; }
+  .final p { margin-bottom: 36px; }
+  footer { text-align: center; padding: 32px 24px 56px; color: var(--soft); font-size: 0.9rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    section { padding: 64px 0; }
+    .facts div { grid-template-columns: 4.5em 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <!-- 1. 첫 화면 -->
+  <section class="hero">
+    <div class="ribbon" aria-hidden="true"></div>
+    <div class="wrap">
+      <h1>제주 새벽 책방</h1>
+      <p class="tagline">한 달에 한 권, 끝까지 읽는 사람들</p>
+      <a class="apply" data-apply href="#" target="_blank" rel="noopener noreferrer">📖 멤버 신청하기</a>
+      <p class="deadline">모집 마감 12월 10일 · 정원 8명</p>
+    </div>
+  </section>
+
+  <!-- 2. 모임 소개 -->
+  <section id="about">
+    <div class="wrap">
+      <h2>모임 소개</h2>
+      <p class="lead">
+        바쁜 일상에서 책 한 권을 끝까지 읽기는 생각보다 어렵습니다.
+        제주 새벽 책방은 같은 책을 같은 달에 읽고, 토요일 오전에 모여 이야기를 나누는 작은 독서모임입니다.
+        여덟 명이 둘러앉아 천천히, 깊이 있게 읽어요. ☕
+      </p>
+      <dl class="facts">
+        <div><dt>🗓 일시</dt><dd>매달 둘째 주 토요일 오전 10시</dd></div>
+        <div><dt>📍 장소</dt><dd>제주시 OO카페</dd></div>
+        <div><dt>👥 정원</dt><dd>8명</dd></div>
+        <div><dt>💰 회비</dt><dd>월 1만 원</dd></div>
+        <div><dt>⏳ 마감</dt><dd>12월 10일</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- 3. 이런 분을 찾아요 -->
+  <section id="who">
+    <div class="wrap">
+      <h2>이런 분을 찾아요</h2>
+      <ul class="who">
+        <li><span>🌿</span><span>책을 사 두고 끝까지 읽지 못해 아쉬웠던 분</span></li>
+        <li><span>🌿</span><span>혼자 읽는 것보다 함께 읽는 시간이 필요한 분</span></li>
+        <li><span>🌿</span><span>내 생각을 이야기하고, 다른 사람의 생각도 듣고 싶은 분</span></li>
+        <li><span>🌿</span><span>토요일 아침을 조용하고 알차게 시작하고 싶은 분</span></li>
+        <li><span>🌿</span><span>매달 정해진 책을 성실하게 읽어 올 수 있는 분</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. 진행 방식과 일정 -->
+  <section id="how">
+    <div class="wrap">
+      <h2>진행 방식과 일정</h2>
+      <p class="lead">매달 둘째 주 토요일 오전 10시에 모여 약 두 시간 동안 진행해요.</p>
+      <ol class="steps">
+        <li><b>10:00 인사와 차 한 잔</b><span>자리를 잡고 가볍게 안부를 나눠요.</span></li>
+        <li><b>10:20 한 줄 소감</b><span>돌아가며 이번 달 책을 읽은 소감을 한 줄씩 말해요.</span></li>
+        <li><b>10:50 함께 이야기하기</b><span>인상 깊은 문장과 질문을 중심으로 이야기를 나눠요.</span></li>
+        <li><b>11:40 다음 달 책 정하기</b><span>다음 모임에서 읽을 책을 함께 고르고 마무리해요.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5. 함께 읽을 책 -->
+  <section id="book">
+    <div class="wrap">
+      <h2>함께 읽을 책</h2>
+      <p class="lead">첫 달에 함께 읽을 책이에요.</p>
+      <div class="book">
+        <div class="emoji" aria-hidden="true">📚</div>
+        <h3>[책 제목]</h3>
+        <p class="lead">첫 모임 전까지 끝까지 읽고 오세요. 다 읽지 못했더라도 괜찮아요. 읽은 만큼 이야기해 주세요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 자주 묻는 질문 -->
+  <section id="faq">
+    <div class="wrap">
+      <h2>자주 묻는 질문</h2>
+      <div class="faq">
+        <details>
+          <summary>책을 다 못 읽고 가도 되나요?</summary>
+          <div class="answer">괜찮아요. 다만 모임의 목표가 '끝까지 읽기'인 만큼, 완독을 목표로 최대한 읽어 오시길 권해요.</div>
+        </details>
+        <details>
+          <summary>독서 경험이 많지 않아도 참여할 수 있나요?</summary>
+          <div class="answer">네. 잘 읽는 사람보다 끝까지 읽어 보려는 사람을 찾고 있어요. 편하게 신청해 주세요.</div>
+        </details>
+        <details>
+          <summary>회비는 어디에 쓰이고 어떻게 내나요?</summary>
+          <div class="answer">월 1만 원이며, 모임 운영에 사용해요. 구체적인 납부 방법은 참여가 확정된 분께 따로 안내드려요.</div>
+        </details>
+        <details>
+          <summary>신청자가 8명보다 많으면 어떻게 되나요?</summary>
+          <div class="answer">모집 마감 후 신청서를 살펴보고, 입력하신 연락처로 선정 결과를 개별 안내드려요.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 마지막 신청 안내 -->
+  <section id="join" class="final">
+    <div class="wrap">
+      <h2>다음 책장을 함께 넘겨요</h2>
+      <p class="lead">
+        신청서는 약 3분이면 작성할 수 있어요.<br>
+        모집 마감은 <b>12월 10일</b>, 정원은 <b>8명</b>입니다.
+      </p>
+      <a class="apply" data-apply href="#" target="_blank" rel="noopener noreferrer">✍️ 지금 신청하기</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 제주 새벽 책방 🌅</footer>
+
+<script>
+  // ▼▼▼ 구글 폼 링크를 여기에 붙여넣으세요. 신청 버튼이 전부 이 주소로 연결됩니다. ▼▼▼
+  var FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdEGNi4Kco6jstMtxg6YD-RpVyNdSzxGVsw22snZyXlt6e1MA/viewform";
+  // ▲▲▲
+
+  document.querySelectorAll("a[data-apply]").forEach(function (a) {
+    a.href = FORM_URL;
+  });
+
+  // 자주 묻는 질문: 하나를 열면 나머지는 닫기
+  var items = document.querySelectorAll(".faq details");
+  items.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      if (item.open) {
+        items.forEach(function (other) {
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>
